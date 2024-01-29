@@ -1,11 +1,63 @@
 {
   "courses": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Angular 13 Fundamentals",
       "description": "Learn the fundamentals of Angular 13",
       "percentComplete": 26,
       "favorite": true
+    },
+    {
+      "id": "2",
+      "title": "TypeScript Fundamentals",
+      "description": "Learn the fundamentals of TypeScript",
+      "percentComplete": 0,
+      "favorite": false
+    },
+    {
+      "id": "3",
+      "title": "Intermediate Angular 13",
+      "description": "Implement an Angular 13 App",
+      "percentComplete": 60,
+      "favorite": true
+    }
+  ],
+  "lessons": [
+    {
+      "id": "1",
+      "title": "Hello Angular"
+    },
+    {
+      "id": "2",
+      "title": "Component Fundamentals"
+    },
+    {
+      "id": "3",
+      "title": "Template Driven Forms"
+    },
+    {
+      "id": "4",
+      "title": "Angular Services"
+    },
+    {
+      "id": "5",
+      "title": "Server Communication"
+    },
+    {
+      "id": "6",
+      "title": "Component Driven Architecture"
+    },
+    {
+      "id": "7",
+      "title": "Angular Routing"
+    },
+    {
+      "id": "8",
+      "title": "Unit Testing Fundamentals"
+    },
+    {
+      "id": "9",
+      "title": "Wrap-up"
     }
   ]
 }

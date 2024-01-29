@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../common/models/course';
+import { CoursesService } from '../common/services/courses.service';
 
 const EMPTY_COURSE: Course = {
   id: null,
@@ -15,33 +16,18 @@ const EMPTY_COURSE: Course = {
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  courses = [
-    {
-      id: 1,
-      title: 'Angular 13 Fundamentals',
-      description: 'Learn the fundamentals of Angular 13',
-      percentComplete: 26,
-      favorite: true
-    },{
-      id: 2,
-      title: 'TypeScript Fundamentals',
-      description: 'Learn the fundamentals of TypeScript',
-      percentComplete: 0,
-      favorite: false
-    },{
-      id: 3,
-      title: 'Intermediate Angular 13',
-      description: 'Implement an Angular 13 App',
-      percentComplete: 0,
-      favorite: false
-    }
-  ];
+  courses = [];
   selectedCourse = EMPTY_COURSE;
   originalTitle = '';
 
-  constructor() { }
+  constructor(private coursesService: CoursesService) { }
 
   ngOnInit(): void {
+    this.fecthCourses();
+  }
+
+  fecthCourses() {
+    this.coursesService.all().subscribe((res:any) => this.courses = res);
   }
 
   selectCourse(course) {
@@ -50,14 +36,26 @@ export class CoursesComponent implements OnInit {
   }
 
   deleteCourse(id) {
-    console.log('Deleting course with id', id);
+    this.coursesService.delete(id).subscribe(_ => this.fecthCourses());
   }
 
   resetSelectedCourse() {
     this.selectCourse(EMPTY_COURSE);
   }
 
-  saveCourse(selected) {
-    console.log('Saving course', selected);
+  saveCourse(course) {
+    if (course.id) {
+      this.updateCourse(course);
+    } else {
+      this.createCourse(course);
+    }
+  }
+
+  createCourse(course) {
+    this.coursesService.create(course).subscribe(_ => this.fecthCourses());
+  }
+
+  updateCourse(course) {
+    this.coursesService.update(course).subscribe(_ => this.fecthCourses());
   }
 }
