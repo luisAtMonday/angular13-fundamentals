@@ -7,7 +7,7 @@ import { LessonsService } from '../common/services/lessons.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  courseLessons = [];
+  lessons$: any;
 
   selectedLesson = null;
 
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   }
 
   fetchLessons() {
-    this.lessonsService.all().subscribe((res: any) => this.courseLessons = res);
+    this.lessons$ = this.lessonsService.all();
   }
 
   selectLesson(lesson) {

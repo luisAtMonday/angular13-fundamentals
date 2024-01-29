@@ -16,7 +16,7 @@ const EMPTY_COURSE: Course = {
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  courses = [];
+  courses$: any;
   selectedCourse = EMPTY_COURSE;
 
   constructor(private coursesService: CoursesService) { }
@@ -26,7 +26,7 @@ export class CoursesComponent implements OnInit {
   }
 
   fecthCourses() {
-    this.coursesService.all().subscribe((res:any) => this.courses = res);
+    this.courses$ = this.coursesService.all();
   }
 
   selectCourse(course) {

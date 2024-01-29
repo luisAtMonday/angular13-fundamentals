@@ -1,6 +1,6 @@
 <div class="courses-containers">
     <div class="courses-list">
-        <app-courses-list [courses]="courses" (selected)="selectCourse($event)" (deleted)="deleteCourse($event)"></app-courses-list>
+        <app-courses-list [courses]="courses$ | async" (selected)="selectCourse($event)" (deleted)="deleteCourse($event)"></app-courses-list>
     </div>
     <div class="course-details">
         <app-course-details [course]="selectedCourse" (saved)="saveCourse($event)" (cancelled)="resetSelectedCourse()"></app-course-details>
