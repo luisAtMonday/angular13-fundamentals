@@ -1,0 +1,18 @@
+  <mat-card>
+  <mat-card-header>
+      <mat-card-title>
+      Course List
+      </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+      <mat-list>
+          <mat-list-item *ngFor="let c of courses" (click)="selected.emit(c)">
+              <h3 matLine>{{c.title | titlecase}}</h3>
+              <p matLine>{{c.description}}</p>
+              <button mat-icon-button color="warn" (click)="deleted.emit(c.id); $event.stopImmediatePropagation()">
+                  <mat-icon>delete</mat-icon>
+              </button>
+          </mat-list-item>
+      </mat-list>
+  </mat-card-content>
+  </mat-card>

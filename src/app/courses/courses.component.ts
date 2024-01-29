@@ -18,7 +18,6 @@ const EMPTY_COURSE: Course = {
 export class CoursesComponent implements OnInit {
   courses = [];
   selectedCourse = EMPTY_COURSE;
-  originalTitle = '';
 
   constructor(private coursesService: CoursesService) { }
 
@@ -32,7 +31,6 @@ export class CoursesComponent implements OnInit {
 
   selectCourse(course) {
     this.selectedCourse = {...course};
-    this.originalTitle = course.title;
   }
 
   deleteCourse(id) {
