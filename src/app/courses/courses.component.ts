@@ -30,7 +30,7 @@ export class CoursesComponent implements OnInit {
   }
 
   selectCourse(course) {
-    this.selectedCourse = {...course};
+    this.selectedCourse = course;
   }
 
   deleteCourse(id) {
