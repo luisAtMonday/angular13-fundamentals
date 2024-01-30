@@ -17,7 +17,5 @@ export class CourseDetailsComponent {
     }
     this.currentCourse = {...value};
     this.originalTitle = value.title;
-  }
-
-  
+  } 
 }
